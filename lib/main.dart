@@ -44,16 +44,16 @@ class _MainAppState extends State<MainApp> {
   }
 
   void _onPressed() {
-    setState(() {
-      _inProgress = true;
-    });
+    setState(() => _inProgress = true);
+
+    // Вызов функции, которая долго вычисляется
     _result = fib(_value);
-    setState(() {
-      _inProgress = false;
-    });
+
+    setState(() => _inProgress = false);
   }
 }
 
+/// Сторонняя функция, которая долго вычисляется
 int fib(int n) => switch (n) {
       < 2 => n,
       _ => fib(n - 2) + fib(n - 1),
