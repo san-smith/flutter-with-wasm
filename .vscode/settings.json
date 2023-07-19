@@ -1,0 +1,9 @@
+{
+    "cSpell.language": "en,ru,ru-RU",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "files.insertFinalNewline": true,
+    }
+}
