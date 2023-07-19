@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -33,7 +36,7 @@ class _MainAppState extends State<MainApp> {
               ElevatedButton(
                 onPressed: _onPressed,
                 child: _inProgress
-                    ? const CircularProgressIndicator()
+                    ? const CircularProgressIndicator(color: Colors.white)
                     : const Text('Найти'),
               ),
             ],
@@ -47,9 +50,10 @@ class _MainAppState extends State<MainApp> {
     setState(() => _inProgress = true);
 
     // Вызов функции, которая долго вычисляется
-    _result = fib(_value);
-
-    setState(() => _inProgress = false);
+    compute((n) => fib(n), _value).then((value) {
+      _result = value;
+      setState(() => _inProgress = false);
+    });
   }
 }
 
