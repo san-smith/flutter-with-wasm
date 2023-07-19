@@ -38,6 +38,12 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+  <script type="module" defer="">
+    import init, { fib } from "./fib_wasm.js";
+    init().then(() => {
+      window.fib = (n) => fib(n)
+    });
+  </script>
 </head>
 <body>
   <script>

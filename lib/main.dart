@@ -1,4 +1,4 @@
-import 'dart:async';
+import 'fib.dart' if (dart.library.html) 'fib_web.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -56,9 +56,3 @@ class _MainAppState extends State<MainApp> {
     });
   }
 }
-
-/// Сторонняя функция, которая долго вычисляется
-int fib(int n) => switch (n) {
-      < 2 => n,
-      _ => fib(n - 2) + fib(n - 1),
-    };
